@@ -2,6 +2,7 @@ DROP DATABASE IF EXISTS superheroes;
 CREATE DATABASE superheroes CHARACTER SET utf8mb4;
 USE superheroes;
 
+
 CREATE TABLE creador (
 id_creador INT UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
   nombre VARCHAR(20) NOT NULL
@@ -22,6 +23,7 @@ CREATE TABLE personajes (
   FOREIGN KEY (id_creador) REFERENCES creador(id_creador)
   );
 
+
 INSERT INTO creador VALUES(1, 'Marvel');
 INSERT INTO creador VALUES(2, 'DC Comics');
 
@@ -38,3 +40,24 @@ INSERT INTO personajes VALUES(10, 'Barry Allen', 'Flash', 160, '10 mil', 120, 16
 INSERT INTO personajes VALUES(11, 'Bruce Wayne', 'Batman', 170, '500', 32, 47, 1939, 'Hombre de negocios', 2);
 INSERT INTO personajes VALUES(12, 'Clarck Kent', 'Superman', 165, 'infinita', 120, 182, 1948, 'Reportero', 2);
 INSERT INTO personajes VALUES(13, 'Diana Prince', 'Mujer Maravilla', 160, 'infinita', 95, 127, 1949, 'Princisa guerrera', 2);
+
+UPDATE personajes
+SET aparicion = 1938
+WHERE id_personaje = 12;
+
+
+SELECT * 
+	FROM personajes;
+    
+DELETE
+	FROM personajes 
+    WHERE id_personaje = 10;
+
+SELECT nombre_real
+	FROM personajes;
+    
+SELECT nombre_real
+	FROM personajes
+    WHERE nombre_real LIKE 'B%';    
+    
+SELECT * FROM personajes ORDER BY inteligencia DESC;

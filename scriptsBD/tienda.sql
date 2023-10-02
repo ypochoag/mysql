@@ -36,3 +36,125 @@ INSERT INTO producto VALUES(8, 'Portátil Yoga 520', 559, 2);
 INSERT INTO producto VALUES(9, 'Portátil Ideapd 320', 444, 2);
 INSERT INTO producto VALUES(10, 'Impresora HP Deskjet 3720', 59.99, 3);
 INSERT INTO producto VALUES(11, 'Impresora HP Laserjet Pro M26nw', 180, 3);
+
+SELECT *
+FROM fabricante;
+
+SELECT *
+FROM producto;
+
+SELECT nombre
+FROM producto;
+
+SELECT nombre, precio
+FROM producto;
+
+SELECT nombre, ROUND(precio)
+FROM producto;
+
+SELECT codigo_fabricante
+FROM producto;
+
+SELECT codigo_fabricante
+FROM producto
+GROUP BY codigo_fabricante;
+
+SELECT nombre
+FROM fabricante
+ORDER BY nombre ASC;
+
+SELECT nombre
+FROM producto
+ORDER BY nombre ASC;
+
+SELECT nombre, ROUND(precio)
+FROM producto
+ORDER BY precio DESC;
+
+SELECT nombre
+FROM fabricante
+LIMIT 5;
+
+SELECT nombre, precio
+FROM producto
+ORDER BY precio ASC
+LIMIT 1;
+
+SELECT nombre, precio
+FROM producto
+ORDER BY precio DESC
+LIMIT 1;
+
+SELECT nombre, precio
+FROM producto
+WHERE precio <= 120;
+
+SELECT nombre, precio
+FROM producto
+WHERE precio BETWEEN 60 AND 200;
+
+SELECT nombre, codigo_fabricante
+FROM producto
+WHERE codigo_fabricante IN (1,3,5);
+
+SELECT nombre
+FROM producto
+WHERE nombre LIKE "%Portatil%";
+
+SELECT p.codigo, p.nombre, p.codigo_fabricante, f.nombre
+FROM producto p
+INNER JOIN  fabricante f
+ON  p.codigo_fabricante = f.codigo;
+
+SELECT p.nombre, p.precio, f.nombre
+FROM producto p
+INNER JOIN  fabricante f
+ON  p.codigo_fabricante = f.codigo
+ORDER BY f.nombre ASC;
+
+SELECT p.nombre, p.precio, f.nombre
+FROM producto p
+INNER JOIN  fabricante f
+ON  p.codigo_fabricante = f.codigo
+WHERE p.precio = (SELECT MIN(precio) FROM producto);
+
+SELECT p.nombre, f.nombre
+FROM producto p
+INNER JOIN fabricante f
+ON p.codigo_fabricante = f.codigo
+WHERE f.nombre = 'Lenovo';
+
+SELECT p.nombre, f.nombre, p.precio
+FROM producto p
+INNER JOIN fabricante f
+ON p.codigo_fabricante = f.codigo
+WHERE f.nombre = 'Crucial' AND p.precio>200;
+
+SELECT p.nombre, f.nombre
+FROM producto p
+INNER JOIN fabricante f
+ON p.codigo_fabricante = f.codigo
+WHERE f.nombre IN('Asus', 'Hewlett-Packard');
+
+SELECT p.nombre, p.precio, f.nombre
+FROM producto p
+INNER JOIN fabricante f
+ON p.codigo_fabricante = f.codigo
+WHERE p.precio>=180
+ORDER BY p.precio DESC;
+
+SELECT p.nombre, p.precio, f.nombre
+FROM producto p
+INNER JOIN fabricante f
+ON p.codigo_fabricante = f.codigo
+WHERE p.precio>=180
+ORDER BY p.nombre ASC;
+
+
+
+
+
+
+
+
+
