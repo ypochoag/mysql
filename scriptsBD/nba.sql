@@ -18558,3 +18558,4 @@ INSERT INTO partidos VALUES (15657,'Suns','Hornets',68,65,'07/08');
 INSERT INTO partidos VALUES (15658,'Suns','Spurs',105,157,'07/08');
 INSERT INTO partidos VALUES (15659,'Suns','Rockets',105,57,'07/08');
 INSERT INTO partidos VALUES (15660,'Suns','Mavericks',69,144,'07/08');
+
